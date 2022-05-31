@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class webController extends Controller
 {
+    public function detail(Request $request){
+        return view('detail');
+    }
     public function payment(Request $request){
         \Midtrans\Config::$serverKey = 'SB-Mid-server-FcuEQbUnkkiJKeJhfG1AbvVO';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -29,6 +32,6 @@ class webController extends Controller
         );
         
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        return view('detail');
+        return view('billing', ['snap_token' => $snapToken]);
     }
 }

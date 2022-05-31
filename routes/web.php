@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\webController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,5 @@ Route::get('/konten', function () {
     return view('konten');
 });
 
-Route::get('/detail', [webController::class, 'payment' ]);
+Route::get('/detail', [webController::class, 'detail' ]);
+Route::get('/billing', [webController::class, 'payment' ]);

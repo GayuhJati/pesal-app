@@ -25,9 +25,9 @@
           <li>Consectetur</li>
           <li>Adipiscing Elit</li>
         </ul>
-        <div class="mt-4 pt-2">
+        <div class="mt-4 pt-2 ">
             <input class="btn btn-primary btn-lg" type="submit" value="Submit" placeholder="Pesan"/>
-          </div>
+        </div>
       </div>
       
     </div>
