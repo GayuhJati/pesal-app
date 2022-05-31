@@ -20,3 +20,13 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/sign', function () {
+    return view('sign');
+});
+
+Route::get('/konten', function () {
+    return view('konten');
+});
+
+Route::get('/detail', [webController::class, 'payment' ]);

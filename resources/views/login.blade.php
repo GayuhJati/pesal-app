@@ -22,7 +22,7 @@
   
               <!-- Checkbox -->
               <div class="form-check d-flex justify-content-start mb-4">
-                <label class="form-check-label" for="form1Example3"> Remember password </label>
+                <label class="form-check-label" for="form1Example3"> Belum Punya Akun? <a href="sign">Daftar Sekarang</a> </label>
               </div>
   
               <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
