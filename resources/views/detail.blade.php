@@ -1,36 +1,42 @@
 @extends('layout.main')
 @section('container')
     <!-- Page Content -->
-<div class="container">
-
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4">Page Heading
-      <small>Secondary Text</small>
+    <h1 class="my-4">Detail Info
     </h1>
-  
-    <!-- Portfolio Item Row -->
-    <div class="row">
-  
-      <div class="col-md-8">
-        <img class="img-fluid" src="https://via.placeholder.com/750x500" alt="">
-      </div>
-  
-      <div class="col-md-4">
-        <h3 class="my-3">Project Description</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-        <h3 class="my-3">Project Details</h3>
-        <ul>
-          <li>Lorem Ipsum</li>
-          <li>Dolor Sit Amet</li>
-          <li>Consectetur</li>
-          <li>Adipiscing Elit</li>
-        </ul>
-        <div class="mt-4 pt-2 ">
-            <input class="btn btn-primary btn-lg" type="submit" value="Submit" placeholder="Pesan"/>
-        </div>
-      </div>
+    
+        <div class="row">
+          <div class="col-md-8">
+            <img class="img-fluid" src="/img/{{ $item -> image }}.jpg" alt="{{ $item -> image }}">
+          </div>
       
-    </div>
+          <div class="col-md-4">
+            <h3 class="my-3">{{ $item["title"] }}</h3>
+            <p>{{ $item["alamat"] }}</p>
+            <h3 class="my-3">Rp.{{ $item["harga"] }},00</h3>
+            <ul>
+              <li>Lorem Ipsum</li>
+              <li>Dolor Sit Amet</li>
+              <li>Consectetur</li>
+              <li>Adipiscing Elit</li>
+            </ul>
+            <div class="mt-4 pt-2 ">
+              <form action="billing" method="post">
+                <div class="col-md-4">
+                  <?php echo($item["image"]); ?>
+                  <input type="hidden" name="field" value="{{ $item -> "image" }}"/>
+                  <input type="hidden" name="harga" value="{{ $item -> "harga" }}"/>
+                  <label> Tanggal Pesan </label>
+                  <input type="date" id="date" name="date" class="mb-2">
+                </div>
+                <input class="btn btn-primary btn-lg" type="Pesan" value="Submit" placeholder="Pesan"/>
+              </form> 
+              </div>
+          </div>
+          
+
+    <!-- Portfolio Item Row -->
+    
     <!-- /.row -->
   
     <!-- Related Projects Row -->

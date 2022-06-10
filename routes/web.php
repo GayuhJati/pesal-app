@@ -18,17 +18,28 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('konten_detail/{$id}', function () {
+    return view('konten_detail');
+});
+
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
+Route::post('/login', [webController::class, 'authenticate']);
+Route::post('/logout', [webController::class, 'logout']);
+
 
 Route::get('/sign', function () {
     return view('sign');
 });
+Route::post('/sign',[webController::class, 'store'])->middleware('guest');
 
-Route::get('/konten', function () {
-    return view('konten');
-});
+Route::get('/konten', [webController::class, 'itemIndex'])->middleware('auth');
 
 Route::get('/detail', [webController::class, 'detail' ]);
+
+Route::get('/konten/{id}', [webController::class, 'itemCari'])->middleware('auth');
+Route::post('/konten/{id}', [webController::class, 'itemBayar'])->middleware('auth');
+
+
 Route::get('/billing', [webController::class, 'payment' ]);

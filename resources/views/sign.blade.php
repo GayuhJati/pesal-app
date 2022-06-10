@@ -8,14 +8,19 @@
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-              <form>
-  
+              <form action='/sign' method='post'>
+                @csrf
                 <div class="row">
                   <div class="col-md-12 mb-4">
   
                     <div class="form-outline">
-                      <input type="text" id="firstName" class="form-control form-control-lg" />
+                      <input type="text" id="name" name="name" class="form-control form-control-lg @error('name') is-invalid @enderror" />
                       <label class="form-label" for="Name">Name</label>
+                      @error('name')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
                     </div>
   
                   </div>
@@ -24,13 +29,13 @@
                 <div class="row">
                   <div class="col-md-6 mb-4 d-flex align-items-center">
   
-                    <div class="form-outline datepicker w-100">
-                      <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                      <label for="birthdayDate" class="form-label">Birthday</label>
-                    </div>
+                    {{-- <div class="form-outline datepicker w-100">
+                      <input type="text" class="form-control form-control-lg" id="birthday" name="birthday" placeholder="01/01/2001"/>
+                      <label for="birthday" class="form-label">Birthday</label>
+                    </div> --}}
   
                   </div>
-                  <div class="col-md-6 mb-4">
+                  {{-- <div class="col-md-6 mb-4 ">
   
                     <h6 class="mb-2 pb-1">Gender: </h6>
   
@@ -47,22 +52,32 @@
                     </div>
   
                   </div>
-                </div>
+                </div> --}}
   
                 <div class="row">
                   <div class="col-md-6 mb-4 pb-2">
   
                     <div class="form-outline">
-                      <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                      <label class="form-label" for="emailAddress">Email</label>
+                      <input type="email" id="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" />
+                      <label class="form-label" for="email">Email</label>
+                      @error('email')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
                     </div>
   
                   </div>
                   <div class="col-md-6 mb-4 pb-2">
   
                     <div class="form-outline">
-                      <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                      <input type="password" id="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" />
+                      <label class="form-label" for="password">Password</label>
+                      @error('password')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
                     </div>
   
                   </div>
